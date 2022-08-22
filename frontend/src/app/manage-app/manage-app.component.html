@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+
+      <div [hidden]="messagePresent" [ngClass]="{'valid-feedback':isSuccess, 'invalid-feedback':isError }">
+        {{apiResponse}}
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="app-name">Name</span>
+        <input [(ngModel)]="selectedApp.name" [disabled]="isAppSelected()" type="text" class="form-control"
+               aria-label="app-name" aria-describedby="app-name">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Description</span>
+        <textarea [(ngModel)]="selectedApp.description" class="form-control" [disabled]="isAppSelected()"
+                  aria-label="With textarea"></textarea>
+      </div>
+
+      <div class="tags">
+        <h3 class="mb-1" *ngFor="let tag of selectedApp.tags"><span
+          class="badge bg-secondary">{{tag.name}}
+          <i class="bi bi-x-square" (click)="deleteTag(tag)"></i>
+        </span>
+        </h3>
+
+        <hr/>
+
+        <div class="input-group input-group-sm search-tag" [hidden]="isAppSelected()">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Search Tag</span>
+          </div>
+          <input #tagSearch type="text" class="form-control">
+        </div>
+
+        <h3 *ngFor="let tag of tagsToShow"><span
+          [hidden]="isAppSelected()" class="badge bg-secondary">{{tag.name}}
+          <i class="bi bi-plus-square" (click)="addTag(tag)"></i>
+        </span>
+        </h3>
+
+      </div>
+
+      <button type="submit" class="btn btn-secondary float-end" [disabled]="isAppSelected()" (click)="updateLead()">Update</button>
+    </div>
+    <div class="col-lg-6">
+      <div class="input-group input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Search App</span>
+        </div>
+        <input #appSearch type="text" class="form-control">
+      </div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let app of appsToShow">
+          <td (click)="selectApp(app)">{{app.name}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

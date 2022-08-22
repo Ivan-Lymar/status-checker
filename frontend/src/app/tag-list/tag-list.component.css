@@ -1,0 +1,16 @@
+.tags h1 {
+  display: inline;
+}
+
+h1 {
+    margin-right: 10px;
+}
+
+.input-group {
+margin-top:10px;
+margin-bottom:10px;
+}
+
+span {
+cursor: default;
+}

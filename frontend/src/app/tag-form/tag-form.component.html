@@ -1,0 +1,14 @@
+<div class="container">
+  <form [formGroup]="tagForm" (submit)="createTag()">
+    <div [hidden]="messagePresent" [ngClass]="{'valid-feedback':isSuccess, 'invalid-feedback':isError }">
+      {{apiResponse}}
+    </div>
+
+    <div class="form-group tag-form row">
+      <div class="col-sm-4">
+        <input type="name" class="form-control" placeholder="new tag name" formControlName="name">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-secondary ">Create</button>
+  </form>
+</div>

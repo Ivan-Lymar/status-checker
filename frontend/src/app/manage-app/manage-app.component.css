@@ -1,0 +1,20 @@
+.col-lg-6 {
+  margin-top:30px;
+}
+
+.tags h3 {
+  display: inline;
+
+}
+
+h3 {
+    margin-right: 10px;
+}
+
+button {
+  margin-top:10px;
+}
+
+.search-tag {
+  margin-bottom:10px;
+}

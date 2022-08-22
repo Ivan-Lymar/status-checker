@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="input-group input-group-sm">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm">Search</span>
+    </div>
+    <input #tagSearch type="text" class="form-control">
+  </div>
+
+  <div class="tags">
+    <h1 *ngFor="let tag of tagsToShow" routerLink="/status" routerLinkActive="active" ariaCurrentWhenActive="page" [queryParams]="{tag: tag.name}"><span
+      class="badge bg-secondary">{{tag.name}}</span></h1>
+  </div>
+</div>
